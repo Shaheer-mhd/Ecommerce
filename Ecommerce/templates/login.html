@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="{% static 'assets/css/logostyle.css' %}" rel="stylesheet">
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <div class="wrapper">
+        <div class="logo">
+            <img src="{% static 'assets/img/login-logo.png' %}" alt="">
+        </div>
+        <div class="text-center mt-4 name">
+            Easy Shop
+        </div>
+
+        <div class="form-field d-flex align-items-center">
+            <span class="far fa-user"></span>
+            <input type="text" name="username" id="username" placeholder="Username" required>
+        </div>
+        <div class="form-field d-flex align-items-center">
+            <span class="fas fa-key"></span>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+        </div>
+        {% if messages %}
+        {% for message in messages %}
+        <p class="badge badge-light" align="center" style="color:red;">{{message}}</p>
+        {% endfor %}
+        {% endif %}
+        <br>
+        <button type="submit" class="btn mt-3">Login</button>
+
+
+    </div>
+</form>
+</body>
+</html>
+
